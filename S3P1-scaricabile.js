@@ -1,4 +1,4 @@
-/* ESERCIZIO 1
+          /* ESERCIZIO 1
  Scrivi una funzione chiamata "crazySum" che riceve due numeri interi come parametri.
  La funzione deve ritornare la somma di quei due valori, ma se il loro valore è lo stesso allora deve ritornare la loro somma moltiplicata per 3.
 */
@@ -71,16 +71,35 @@ function reverseString (word) {
  Scrivi una funzione chiamata "upperFirst", che accetta una stringa come parametro e la ritorna rendendo maiuscola ogni lettera iniziale di ogni parola.
 */
 
-function upperFirst (word) {
+// stringa corrispondente a una sola parola
+ /* function upperFirst (word) {
     if (typeof word === "string" ) {
         return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
     } else {
         return "Il parametro inserito non è una stringa!"
     }
+} */
+
+// stringa corrispondente a più parole
+function upperFirst (word) {
+    if (typeof word === "string" ) {
+        word = word.toLowerCase ();
+        let res = word.split("");
+        for (let index = 0; index < word.length; index++) {
+            if (word[index-1] === " ") {
+                res [index]= res [index].toUpperCase ();
+                console.log(res);
+            }             
+        }
+        return res[0].toUpperCase() + res.slice(1).join("");
+    } else {
+        return "Il parametro inserito non è una stringa!"
+    }
 }
 
-// let es4 = upperFirst(5);
-// console.log(es4);
+// let es4 = upperFirst("Ciao mi chiamo eni");
+// console.log(es4); 
+
 
 /* ESERCIZIO 5
  Scrivi una funzione chiamata "giveMeRandom", che accetta come parametro un numero chiamato n e ritorna un array contenente n numeri random contenuti tra 0 e 10.
